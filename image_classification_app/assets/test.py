@@ -1,0 +1,11 @@
+from ai_edge_litert.interpreter import Interpreter 
+interpreter = Interpreter(model_path="model_unquant.tflite") 
+interpreter.allocate_tensors() 
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details() 
+print("INPUT:") 
+print("Shape:", input_details[0]["shape"]) 
+print("Data type:", input_details[0]["dtype"]) 
+print("\nOUTPUT:") 
+print("Shape:", output_details[0]["shape"]) 
+print("Data type:", output_details[0]["dtype"])
